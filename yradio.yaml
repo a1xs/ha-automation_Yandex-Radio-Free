@@ -1,0 +1,280 @@
+alias: Yandex St Radio (ON)
+description: ""
+mode: single
+triggers:
+  - entity_id:
+      - input_boolean.radio_btn
+    to: "on"
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Радио Рок
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Rock Arsenal
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Comedy Radio
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Радио Рекорд
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Радио Maximum
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Ultra
+    trigger: state
+  - entity_id:
+      - input_select.radio
+    to: Питер FM
+    trigger: state
+conditions:
+  - condition: state
+    entity_id: input_boolean.mute
+    state: "off"
+actions:
+  - if:
+      - condition: state
+        entity_id: input_boolean.radio_btn
+        state: "off"
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%92%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+
+            media_content_type: command
+            metadata:
+              title: "Выключи Радио "
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+
+        action: media_player.play_media
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Радио Рок
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+%D0%A0%D0%BE%D0%BA
+            media_content_type: command
+            metadata:
+              title: включи Радио Рок
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+%D1%80%D0%BE%D0%BA
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+%D0%A0%D0%BE%D0%BA
+        action: media_player.play_media
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Rock Arsenal
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Rock+Arsenal
+            media_content_type: command
+            metadata:
+              title: включи радио Rock Arsenal
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Rock+Arsenal
+        action: media_player.play_media
+    enabled: true
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Comedy Radio
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+Comedy+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE
+            media_content_type: command
+            metadata:
+              title: включи Comedy Радио
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+Comedy+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE
+        action: media_player.play_media
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Радио Рекорд
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+%D1%80%D0%B5%D0%BA%D0%BE%D1%80%D0%B4
+            media_content_type: command
+            metadata:
+              title: включи радио рекорд
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+%D0%9C%D0%B5%D1%82%D0%B0%D0%BB
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+%D1%80%D0%B5%D0%BA%D0%BE%D1%80%D0%B4
+        action: media_player.play_media
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Радио Maximum
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+            media_content_type: command
+            metadata:
+              title: Включи Радио Maximum
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Rock+Arsenal
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+        action: media_player.play_media
+    enabled: true
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Ultra
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Ultra
+            media_content_type: command
+            metadata:
+              title: Включи радио Ultra
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Rock+Arsenal
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Ultra
+        action: media_player.play_media
+    enabled: true
+  - if:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.radio
+            state: Питер FM
+    then:
+      - target:
+          entity_id: media_player.yandex_station_ff98f029f030541cc69059e4
+        data:
+          media:
+            media_content_id: >-
+              media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+%D0%9F%D0%B8%D1%82%D0%B5%D1%80+FM
+            media_content_type: command
+            metadata:
+              title: Включи радио Питер FM
+              thumbnail: https://brands.home-assistant.io/_/automation/icon.png
+              media_class: app
+              children_media_class: null
+              navigateIds:
+                - {}
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Rock+Arsenal
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE+Maximum
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+Ultra
+                - media_content_type: command
+                  media_content_id: >-
+                    media-source://tts/yandex_station?message=%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8+%D1%80%D0%B0%D0%B4%D0%B8%D0%BE+%D0%9F%D0%B8%D1%82%D0%B5%D1%80+FM
+        action: media_player.play_media
+    enabled: true
+  - data: {}
+    target:
+      entity_id: input_boolean.radio_btn
+    action: homeassistant.turn_on
